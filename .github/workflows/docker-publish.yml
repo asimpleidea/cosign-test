@@ -84,5 +84,5 @@ jobs:
       - name: Sign the images with GitHub OIDC Token **not production ready**
         run: cosign sign ${TAGS}
         env:
-          TAGS: ${{ steps.meta.outputs.tags }}
+          TAGS: ${{ steps.build-and-push.outputs.digest }}
           COSIGN_EXPERIMENTAL: true
